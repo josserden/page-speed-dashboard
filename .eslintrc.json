@@ -1,10 +1,10 @@
 {
-  "plugins": ["perfectionist", "react"],
+  "plugins": ["perfectionist", "react", "prettier"],
   "extends": [
     "next/core-web-vitals",
     "next/typescript",
-    "plugin:react/recommended"
-
+    "plugin:react/recommended",
+    "prettier"
   ],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
@@ -148,6 +148,12 @@
     "perfectionist": {
       "partitionByComment": true,
       "type": "alphabetical"
-    }
+    },
+    "prettier/prettier": [
+      "warn",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   }
 }

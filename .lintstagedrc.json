@@ -1,0 +1,4 @@
+{
+  "**/*.ts": ["prettier --write", "lint", "type-check"],
+  "./*.md": "prettier --write"
+}
