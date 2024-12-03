@@ -9,7 +9,7 @@
     "lint": "next lint --fix",
     "format": "npx prettier . --write",
     "lint-staged": "lint-staged",
-    "type-check": "tsc --project tsconfig.json --pretty --noEmit && echo ",
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit && echo",
     "prepare": "husky install"
   },
   "dependencies": {

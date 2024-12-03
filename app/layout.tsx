@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react';
 
-import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import type { Metadata } from 'next';
+import { Roboto } from 'next/font/google';
 
-import "./globals.css";
+import './globals.css';
 
 const roboto = Roboto({
-  display: "swap",
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-sans",
-  weight: ["400", "700"],
+  display: 'swap',
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  variable: '--font-sans',
+  weight: ['400', '700'],
 });
 
 export const metadata: Metadata = {
-  description: "Interactive platform for viewing and analyzing data with ease.",
-  title: "Dashboard",
+  description: 'Interactive platform for viewing and analyzing data with ease.',
+  title: 'Dashboard',
 };
 
 export default function RootLayout({

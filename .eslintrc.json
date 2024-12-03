@@ -139,6 +139,13 @@
         "order": "asc",
         "type": "alphabetical"
       }
+    ],
+
+    "prettier/prettier": [
+      "warn",
+      {
+        "endOfLine": "auto"
+      }
     ]
   },
   "settings": {
@@ -148,12 +155,6 @@
     "perfectionist": {
       "partitionByComment": true,
       "type": "alphabetical"
-    },
-    "prettier/prettier": [
-      "warn",
-      {
-        "endOfLine": "auto"
-      }
-    ]
+    }
   }
 }
