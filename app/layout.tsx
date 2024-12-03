@@ -5,11 +5,7 @@ import { Roboto } from 'next/font/google';
 import { cookies } from 'next/headers';
 
 import { AppSidebar } from '@/app/(shared)/components/layout/AppSidebar';
-import {
-  SIDEBAR_COOKIE_NAME,
-  SidebarProvider,
-  SidebarTrigger,
-} from '@/app/(shared)/components/ui/sidebar';
+import { SidebarProvider, SidebarTrigger } from '@/app/(shared)/components/ui/sidebar';
 import { cn } from '@/app/(shared)/lib/utils';
 
 import './globals.css';
