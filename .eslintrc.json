@@ -1,0 +1,153 @@
+{
+  "plugins": ["perfectionist", "react"],
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "plugin:react/recommended"
+
+  ],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off",
+
+    "perfectionist/sort-array-includes": [
+      "error",
+      {
+        "order": "asc",
+        "type": "alphabetical"
+      }
+    ],
+    "perfectionist/sort-classes": [
+      "error",
+      {
+        "order": "asc",
+        "type": "alphabetical"
+      }
+    ],
+    "perfectionist/sort-enums": [
+      "error",
+      {
+        "order": "asc",
+        "type": "alphabetical"
+      }
+    ],
+    "perfectionist/sort-exports": [
+      "error",
+      {
+        "order": "asc",
+        "type": "alphabetical"
+      }
+    ],
+    "perfectionist/sort-imports": [
+      "error",
+      {
+        "customGroups": {
+          "type": {
+            "react": ["react"],
+            "next": ["next", "next-*", "next/*"],
+            "react-libraries": ["react-*"]
+            //            "types-and-icons": [
+            //              "@/shared/types/**",
+            //              "@/assets/icons/**",
+            //              "@/**/*types.ts",
+            //              "@/**/*types"
+            //            ]
+          },
+          "value": {
+            "react": ["react"],
+            "next": ["next", "next-*", "next/*"],
+            "react-libraries": ["react-*"]
+            //            "types-and-icons": [
+            //              "@/shared/types/**",
+            //              "@/assets/icons/**",
+            //              "@/**/*types.ts",
+            //              "@/**/*types"
+            //            ]
+          }
+        },
+        "groups": [
+          ["react"],
+          ["next"],
+          ["react-libraries"],
+          ["builtin", "external"],
+          "internal",
+          ["parent", "sibling", "index"],
+          ["parent-type", "sibling-type", "index-type"],
+          "object",
+          "unknown",
+          ["type", "internal-type"]
+        ],
+        "ignoreCase": false,
+        "internalPattern": ["@/*"],
+        "order": "asc",
+        "type": "alphabetical"
+      }
+    ],
+    "perfectionist/sort-interfaces": [
+      "error",
+      {
+        "order": "asc",
+        "type": "alphabetical"
+      }
+    ],
+    "perfectionist/sort-jsx-props": [
+      "error",
+      {
+        "order": "asc",
+        "type": "alphabetical"
+      }
+    ],
+    "perfectionist/sort-named-exports": [
+      "error",
+      {
+        "order": "asc",
+        "type": "alphabetical"
+      }
+    ],
+    "perfectionist/sort-named-imports": [
+      "error",
+      {
+        "order": "asc",
+        "type": "alphabetical"
+      }
+    ],
+    "perfectionist/sort-objects": [
+      "error",
+      {
+        "order": "asc",
+        "type": "alphabetical"
+      }
+    ],
+    "perfectionist/sort-switch-case": [
+      "error",
+      {
+        "order": "asc",
+        "type": "alphabetical"
+      }
+    ],
+    "perfectionist/sort-union-types": [
+      "error",
+      {
+        "order": "asc",
+        "type": "alphabetical"
+      }
+    ],
+    "perfectionist/sort-variable-declarations": [
+      "error",
+      {
+        "order": "asc",
+        "type": "alphabetical"
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "perfectionist": {
+      "partitionByComment": true,
+      "type": "alphabetical"
+    }
+  }
+}
