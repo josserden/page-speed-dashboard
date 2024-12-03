@@ -20,7 +20,7 @@ import {
 import { useIsMobile } from '@/app/(shared)/hooks/use-mobile';
 import { cn } from '@/app/(shared)/lib/utils';
 
-export const SIDEBAR_COOKIE_NAME = 'sidebar:state';
+const SIDEBAR_COOKIE_NAME = 'sidebar:state';
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
 const SIDEBAR_WIDTH = '16rem';
 const SIDEBAR_WIDTH_MOBILE = '18rem';
@@ -41,6 +41,7 @@ const SidebarContext = React.createContext<null | SidebarContext>(null);
 
 function useSidebar() {
   const context = React.useContext(SidebarContext);
+
   if (!context) {
     throw new Error('useSidebar must be used within a SidebarProvider.');
   }
@@ -266,7 +267,6 @@ const SidebarTrigger = React.forwardRef<
       className={cn('size-7', className)}
       data-sidebar="trigger"
       onClick={event => {
-        console.log('SidebarTrigger onClick');
         onClick?.(event);
         toggleSidebar();
       }}

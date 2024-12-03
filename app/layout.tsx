@@ -29,14 +29,17 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies();
-  const defaultOpen = cookieStore.get(SIDEBAR_COOKIE_NAME)?.value === 'true';
+  const defaultOpen = cookieStore.get('sidebar:state')?.value === 'true';
+
+  console.log('cookieStore.get(SIDEBAR_COOKIE_NAME)', cookieStore.get('sidebar:state'));
 
   return (
     <html lang="en">
       <body className={cn(`${roboto.variable} flex h-full min-h-screen flex-col antialiased`)}>
-        <SidebarProvider defaultOpen={!defaultOpen}>
+        <SidebarProvider defaultOpen={defaultOpen}>
           <AppSidebar />
-          <main className="flex-grow px-4 py-3">
+
+          <main className="flex-grow px-2.5 py-1">
             <header>
               <SidebarTrigger />
             </header>
