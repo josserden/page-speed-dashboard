@@ -2,6 +2,15 @@ import React from 'react';
 
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
+import { cookies } from 'next/headers';
+
+import { AppSidebar } from '@/app/(shared)/components/layout/AppSidebar';
+import {
+  SIDEBAR_COOKIE_NAME,
+  SidebarProvider,
+  SidebarTrigger,
+} from '@/app/(shared)/components/ui/sidebar';
+import { cn } from '@/app/(shared)/lib/utils';
 
 import './globals.css';
 
@@ -10,7 +19,7 @@ const roboto = Roboto({
   style: ['normal', 'italic'],
   subsets: ['latin'],
   variable: '--font-sans',
-  weight: ['400', '700'],
+  weight: ['400', '700', '900'],
 });
 
 export const metadata: Metadata = {
@@ -18,23 +27,24 @@ export const metadata: Metadata = {
   title: 'Dashboard',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const cookieStore = await cookies();
+  const defaultOpen = cookieStore.get(SIDEBAR_COOKIE_NAME)?.value === 'true';
+
   return (
     <html lang="en">
-      <head>
-        <link
-          href="images/favicons/dashboard.png"
-          rel="icon"
-          sizes="32x32"
-          type="image/png"
-        />
-      </head>
+      <body className={cn(`${roboto.variable} flex h-full min-h-screen flex-col antialiased`)}>
+        <SidebarProvider defaultOpen={!defaultOpen}>
+          <AppSidebar />
+          <main className="flex-grow px-4 py-3">
+            <header>
+              <SidebarTrigger />
+            </header>
 
-      <body className={`${roboto.variable} antialiased`}>{children}</body>
+            {children}
+          </main>
+        </SidebarProvider>
+      </body>
     </html>
   );
 }
