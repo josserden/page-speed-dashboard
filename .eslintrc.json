@@ -1,11 +1,6 @@
 {
   "plugins": ["perfectionist", "react", "prettier"],
-  "extends": [
-    "next/core-web-vitals",
-    "next/typescript",
-    "plugin:react/recommended",
-    "prettier"
-  ],
+  "extends": ["next/core-web-vitals", "next/typescript", "plugin:react/recommended", "prettier"],
   "parser": "@typescript-eslint/parser",
   "rules": {
     "react-hooks/rules-of-hooks": "error",
@@ -139,13 +134,6 @@
       {
         "order": "asc",
         "type": "alphabetical"
-      }
-    ],
-
-    "prettier/prettier": [
-      "warn",
-      {
-        "endOfLine": "auto"
       }
     ]
   },
