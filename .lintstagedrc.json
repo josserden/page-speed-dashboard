@@ -1,6 +1,4 @@
 {
-  "**/*.ts?(x)": ["npx prettier --write"],
-  "**/*.(ts)?(x)": "npm run type-check",
-  "**/*.(ts)?(x)": "npm run lint",
-  "./*.md": ["prettier --write"]
+  "**/*.{ts,tsx}": ["next lint --fix --file", "npm run type-check", "prettier --write"],
+  "*.md": ["prettier --write"]
 }

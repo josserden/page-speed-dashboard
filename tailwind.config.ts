@@ -70,9 +70,9 @@ export default {
       },
 
       container: {
-        center: 'true',
+        center: true,
         padding: '1rem',
       },
     },
   },
-} as Config;
+} satisfies Config;
