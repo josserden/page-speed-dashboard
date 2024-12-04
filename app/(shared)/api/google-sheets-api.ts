@@ -21,7 +21,7 @@ export const GoogleSheetsApi = {
     universe_domain: process.env.GOOGLE_UNIVERSE_DOMAIN,
   },
 
-  getData: async (): Promise<IGoogleSheetsData> => {
+  getData: async () => {
     const auth = new google.auth.GoogleAuth({
       credentials: GoogleSheetsApi.credentials,
       scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],

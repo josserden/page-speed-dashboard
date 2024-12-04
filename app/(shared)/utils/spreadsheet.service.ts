@@ -49,6 +49,7 @@ export const SpreadsheetService = {
         };
       } catch (error) {
         console.error(error);
+        return { headers: [], values: [] };
       }
     },
     ['rows'],
