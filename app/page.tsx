@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { StatisticsCard } from '@/app/(shared)/components/layout/StatisticsCard/StatisticsCard';
 import {
   Table,
   TableBody,
@@ -14,9 +15,9 @@ export default async function Home() {
   const data = await SpreadsheetService.getTableRows();
 
   return (
-    <div className="space-y-5 py-5">
+    <div className="space-y-10 py-5">
       <div className="">
-        <h1 className="text-2xl font-bold">Performance Metrics</h1>
+        <StatisticsCard data={data?.values} />
       </div>
 
       <Table>
