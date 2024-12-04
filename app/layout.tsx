@@ -27,8 +27,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const cookieStore = await cookies();
   const defaultOpen = cookieStore.get('sidebar:state')?.value === 'true';
 
-  console.log('cookieStore.get(SIDEBAR_COOKIE_NAME)', cookieStore.get('sidebar:state'));
-
   return (
     <html lang="en">
       <body className={cn(`${roboto.variable} flex h-full min-h-screen flex-col antialiased`)}>
