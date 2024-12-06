@@ -20,6 +20,9 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   description: 'Interactive platform for viewing and analyzing data with ease.',
+  icons: {
+    icon: '/layout-dashboard.svg',
+  },
   title: 'Dashboard',
 };
 
