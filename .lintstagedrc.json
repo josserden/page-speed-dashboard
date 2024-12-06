@@ -1,4 +1,0 @@
-{
-  "**/*.{ts,tsx}": ["next lint --fix --file --no-cache", "npm run type-check", "prettier --write"],
-  "*.md": ["prettier --write"]
-}
