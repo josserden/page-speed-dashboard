@@ -1,7 +1,7 @@
 import { unstable_cache } from 'next/cache';
 import { notFound } from 'next/navigation';
 
-import { GoogleSheetsApi } from '@/app/(shared)/api/google-sheets-api';
+import { getGoogleSheetsData } from '@/app/(shared)/api/google-sheets-api';
 
 export interface ITableRows {
   headers: string[];
@@ -25,7 +25,7 @@ export const SpreadsheetService = {
   getTableRows: unstable_cache(
     async (): Promise<ITableRows> => {
       try {
-        const data = await GoogleSheetsApi.getData();
+        const data = await getGoogleSheetsData();
 
         if (!data || !data.values || data.values.length === 0) {
           return notFound();
@@ -45,7 +45,7 @@ export const SpreadsheetService = {
 
         return {
           headers,
-          values: result,
+          values: result ?? [],
         };
       } catch (error) {
         console.error(error);

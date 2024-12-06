@@ -21,15 +21,15 @@ import { TableDataHeader } from '@/app/(shared)/components/blocks/MetricsTable/e
 import { Table } from '@/app/(shared)/components/ui/table';
 import { IRowData } from '@/app/(shared)/utils/spreadsheet.service';
 
-interface MetricsTableProps<TData extends IRowData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
+interface MetricsTableProps<TData extends IRowData> {
+  columns: ColumnDef<TData>[];
   data: TData[];
 }
 
-export const MetricsTable = <TData extends IRowData, TValue>({
+export const MetricsTable = <TData extends IRowData>({
   columns,
   data,
-}: MetricsTableProps<TData, TValue>) => {
+}: MetricsTableProps<TData>) => {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
