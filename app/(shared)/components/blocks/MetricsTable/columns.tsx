@@ -1,6 +1,7 @@
 'use client';
 
 import { ColumnDef } from '@tanstack/react-table';
+import { SquareArrowOutUpRight } from 'lucide-react';
 import React from 'react';
 
 import Link from 'next/link';
@@ -18,8 +19,9 @@ export const columns: ColumnDef<IRowData>[] = [
     accessorKey: 'date_and_time',
     cell: ({ row }) => (
       <Link className="group" href={`/details/${encodeURIComponent(row.original.url)}`}>
-        <Typography className="relative inline cursor-pointer text-nowrap transition-all duration-300 ease-in-out after:absolute after:-bottom-0.5 after:left-0 after:block after:h-[1px] after:w-full after:bg-blue-500 after:opacity-0 after:transition-all after:duration-500 hover:text-blue-600 hover:after:opacity-100">
+        <Typography className="relative inline-flex cursor-pointer items-center gap-x-1 text-nowrap transition-all duration-300 ease-in-out after:absolute after:-bottom-0.5 after:left-0 after:block after:h-[1px] after:w-full after:bg-blue-500 after:opacity-0 after:transition-all after:duration-500 hover:text-blue-600 hover:after:opacity-100">
           {format(row.original.date_and_time, 'PP, kk:mm')}
+          <SquareArrowOutUpRight size={11} />
         </Typography>
       </Link>
     ),

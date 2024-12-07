@@ -12,7 +12,7 @@ export const MainStatistics: FC<{
   const stats = new StatsService(data);
 
   return (
-    <div className="grid grid-cols-3 gap-10">
+    <div className="gap-10 space-y-5 md:grid md:grid-cols-3 md:space-y-0">
       <StatisticCard
         content={data.values.length}
         description="All tests from available data"
@@ -34,7 +34,7 @@ export const MainStatistics: FC<{
         title="Desktop vs Mobile"
       />
 
-      <Card className="col-span-3 grid grid-cols-3  divide-x py-2 text-left">
+      <Card className="divide-y px-2 text-left md:col-span-3 md:grid md:grid-cols-3 md:divide-x md:divide-y-0 md:px-0 md:py-2">
         <StatisticCard
           content={stats.getMetrics().fastest.loading_time}
           description={`${stats.getMetrics().fastest.version} - ${stats.getMetrics().fastest.url}`}
