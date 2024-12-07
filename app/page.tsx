@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <div className="space-y-10 py-5">
       <MainStatistics data={data} />
-      {/*{data?.values && <MetricsTable columns={columns} data={data?.values} />}*/}
+      {data?.values && <MetricsTable columns={columns} data={data?.values} />}
     </div>
   );
 }
