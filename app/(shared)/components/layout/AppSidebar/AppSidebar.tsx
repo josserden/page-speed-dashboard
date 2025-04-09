@@ -29,7 +29,7 @@ import {
   SidebarMenuItem,
   SidebarSeparator,
 } from '@/app/(shared)/components/ui/sidebar';
-import { logout } from '@/app/login/actions';
+import { logout } from '@/app/(shared)/utils/supabase/actions';
 
 // Menu items.
 const items = [

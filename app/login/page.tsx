@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { login, signup } from '@/app/login/actions';
+import { login, signup } from '@/app/(shared)/utils/supabase/actions';
 
 export default function LoginPage() {
   return (
