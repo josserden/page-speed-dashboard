@@ -29,6 +29,7 @@ import {
   SidebarMenuItem,
   SidebarSeparator,
 } from '@/app/(shared)/components/ui/sidebar';
+import { logout } from '@/app/login/actions';
 
 // Menu items.
 const items = [
@@ -104,7 +105,7 @@ export const AppSidebar: React.FC = () => {
               </DropdownMenuTrigger>
 
               <DropdownMenuContent className="w-[--radix-popper-anchor-width]" side="top">
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={logout}>
                   <span>Sign out</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>

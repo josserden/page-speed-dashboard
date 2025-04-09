@@ -7,6 +7,7 @@ import { cookies } from 'next/headers';
 import { AppSidebar } from '@/app/(shared)/components/layout/AppSidebar';
 import { SidebarProvider, SidebarTrigger } from '@/app/(shared)/components/ui/sidebar';
 import { cn } from '@/app/(shared)/lib/utils';
+import { Providers } from '@/app/providers';
 
 import './globals.css';
 
@@ -31,19 +32,21 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const defaultOpen = cookieStore.get('sidebar:state')?.value === 'true';
 
   return (
-    <html lang="en">
+    <html className="dark" lang="en">
       <body className={cn(`${roboto.variable} flex h-full min-h-screen flex-col antialiased`)}>
-        <SidebarProvider defaultOpen={defaultOpen}>
-          <AppSidebar />
+        <Providers>
+          <SidebarProvider defaultOpen={defaultOpen}>
+            <AppSidebar />
 
-          <main className="flex-grow px-2.5 py-1">
-            <header>
-              <SidebarTrigger />
-            </header>
+            <main className="flex-grow px-2.5 py-1">
+              <header>
+                <SidebarTrigger />
+              </header>
 
-            {children}
-          </main>
-        </SidebarProvider>
+              {children}
+            </main>
+          </SidebarProvider>
+        </Providers>
       </body>
     </html>
   );
