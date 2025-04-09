@@ -6,21 +6,19 @@ import React from 'react';
 
 import Link from 'next/link';
 
-import { format } from 'date-fns';
-
 import { ColumnTooltip } from '@/app/(shared)/components/blocks/MetricsTable/extensions/ColumnTooltip';
 import { SortButton } from '@/app/(shared)/components/blocks/MetricsTable/extensions/SortButton';
 import { Typography } from '@/app/(shared)/components/ui/typography';
-import { cn } from '@/app/(shared)/lib/utils';
+import { cn, formatDate } from '@/app/(shared)/lib/utils';
 import { IRowData } from '@/app/(shared)/utils/spreadsheet.service';
 
 export const columns: ColumnDef<IRowData>[] = [
   {
     accessorKey: 'date_and_time',
     cell: ({ row }) => (
-      <Link className="group" href={`/details/${encodeURIComponent(row.original.url)}`}>
+      <Link className="group" href={`/details/${row.original.id}`}>
         <Typography className="relative inline-flex cursor-pointer items-center gap-x-1 text-nowrap transition-all duration-300 ease-in-out after:absolute after:-bottom-0.5 after:left-0 after:block after:h-[1px] after:w-full after:bg-blue-500 after:opacity-0 after:transition-all after:duration-500 hover:text-blue-600 hover:after:opacity-100">
-          {format(row.original.date_and_time, 'PP, kk:mm')}
+          {formatDate(row.original.date_and_time)}
           <SquareArrowOutUpRight size={11} />
         </Typography>
       </Link>
