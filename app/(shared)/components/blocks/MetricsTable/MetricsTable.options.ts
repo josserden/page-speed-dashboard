@@ -18,8 +18,10 @@ export const versionOptions = [
 
 export const performanceScoreColorMap = (score: string) => {
   const numScore = parseInt(score);
+
   if (numScore >= 90) return 'success';
   if (numScore >= 50) return 'warning';
+
   return 'danger';
 };
 
