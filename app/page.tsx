@@ -1,4 +1,4 @@
-import { Button, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@heroui/react';
+import { Button, Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@heroui/react';
 import { Gauge } from 'lucide-react';
 import React from 'react';
 
