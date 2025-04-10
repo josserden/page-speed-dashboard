@@ -1,11 +1,12 @@
 'use client';
 
-import { Card, CardBody, Link, Tab, Tabs } from '@heroui/react';
 import React, { useState } from 'react';
 
 import Image from 'next/image';
 
-import { Typography } from '@/app/(shared)/components/ui/typography';
+import { Card, CardBody, Link, Tab, Tabs } from '@heroui/react';
+
+import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { LoginForm } from '@/app/(shared)/screens/login/LoginForm';
 
 export default function LoginPage() {

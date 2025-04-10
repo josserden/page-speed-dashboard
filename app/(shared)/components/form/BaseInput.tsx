@@ -1,5 +1,6 @@
-import { Input, InputProps } from '@heroui/react';
 import React, { FC } from 'react';
+
+import { Input, InputProps } from '@heroui/react';
 
 export const BaseInput: FC<InputProps> = ({ ...props }) => {
   return (

@@ -36,51 +36,6 @@
         "type": "alphabetical"
       }
     ],
-    "perfectionist/sort-imports": [
-      "error",
-      {
-        "customGroups": {
-          "type": {
-            "react": ["react"],
-            "next": ["next", "next-*", "next/*"],
-            "react-libraries": ["react-*"]
-            //            "types-and-icons": [
-            //              "@/shared/types/**",
-            //              "@/assets/icons/**",
-            //              "@/**/*types.ts",
-            //              "@/**/*types"
-            //            ]
-          },
-          "value": {
-            "react": ["react"],
-            "next": ["next", "next-*", "next/*"],
-            "react-libraries": ["react-*"]
-            //            "types-and-icons": [
-            //              "@/shared/types/**",
-            //              "@/assets/icons/**",
-            //              "@/**/*types.ts",
-            //              "@/**/*types"
-            //            ]
-          }
-        },
-        "groups": [
-          ["react"],
-          ["next"],
-          ["react-libraries"],
-          ["builtin", "external"],
-          "internal",
-          ["parent", "sibling", "index"],
-          ["parent-type", "sibling-type", "index-type"],
-          "object",
-          "unknown",
-          ["type", "internal-type"]
-        ],
-        "ignoreCase": false,
-        "internalPattern": ["@/*"],
-        "order": "asc",
-        "type": "alphabetical"
-      }
-    ],
     "perfectionist/sort-interfaces": [
       "error",
       {

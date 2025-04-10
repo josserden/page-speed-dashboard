@@ -1,8 +1,8 @@
 'use client';
 
-import { TrendingUp } from 'lucide-react';
 import React, { FC } from 'react';
 
+import { TrendingUp } from 'lucide-react';
 import { CartesianGrid, Line, LineChart, XAxis } from 'recharts';
 
 import {

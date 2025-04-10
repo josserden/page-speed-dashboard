@@ -1,44 +1,28 @@
 import React, { FC } from 'react';
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/app/(shared)/components/ui/card';
+import { Card, CardBody, CardFooter, CardHeader, Divider } from '@heroui/react';
+
+import { Typography } from '@/app/(shared)/components/ui/Typography';
 
 type Props = {
   title: string;
   icon: React.ReactNode;
   content: number | string;
   description: string;
-  variant?: 'custom' | 'default';
 };
 
-export const StatisticCard: FC<Props> = ({
-  content,
-  description,
-  icon,
-  title,
-  variant = 'custom',
-}) => {
-  const Component = variant === 'custom' ? Card : 'div';
-
+export const StatisticCard: FC<Props> = ({ content, description, icon, title }) => {
   return (
-    <Component>
-      <CardHeader>
-        <CardTitle className="flex justify-between text-lg font-bold text-slate-950">
-          {title} {icon}
-        </CardTitle>
+    <Card isPressable>
+      <CardHeader className="flex items-center justify-between">
+        <Typography className="text-lg font-medium text-slate-950">{title}</Typography>
+        {icon}
       </CardHeader>
-
-      <CardContent className="text-2xl font-black">{content}</CardContent>
-
+      <Divider />
+      <CardBody className="text-2xl font-bold text-secondary-600">{content}</CardBody>
       <CardFooter>
-        <CardDescription>{description}</CardDescription>
+        <Typography className="text-sm font-normal text-default-400">{description}</Typography>
       </CardFooter>
-    </Component>
+    </Card>
   );
 };

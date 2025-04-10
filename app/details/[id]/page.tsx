@@ -1,11 +1,11 @@
-import { SquareArrowOutUpRight } from 'lucide-react';
 import React from 'react';
 
+import { SquareArrowOutUpRight } from 'lucide-react';
+
 import { MetricsTable } from '@/app/(shared)/components/blocks/MetricsTable';
-import { columns } from '@/app/(shared)/components/blocks/MetricsTable/columns';
 import { PageBreadcrumb } from '@/app/(shared)/components/blocks/PageBreadcrumb';
 import { TrendingChart } from '@/app/(shared)/components/blocks/TrendingChart';
-import { Typography } from '@/app/(shared)/components/ui/typography';
+import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { SpreadsheetService } from '@/app/(shared)/utils/spreadsheet.service';
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
         <TrendingChart chartData={chartData} />
       </div>
 
-      <MetricsTable columns={columns} data={filteredRows} />
+      <MetricsTable data={filteredRows} />
     </div>
   );
 }

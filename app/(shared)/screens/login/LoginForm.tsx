@@ -1,8 +1,10 @@
 'use client';
 
-import { Button, Form } from '@heroui/react';
-import { Mail } from 'lucide-react';
 import React, { FC } from 'react';
+
+import { Mail } from 'lucide-react';
+
+import { Button, Form } from '@heroui/react';
 
 import { BaseInput } from '@/app/(shared)/components/form/BaseInput';
 import { PasswordInput } from '@/app/(shared)/components/form/PasswordInput';

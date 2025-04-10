@@ -1,8 +1,8 @@
-import { ChartPie, Link2, Percent, TrendingDown, TrendingUp, Trophy } from 'lucide-react';
 import React, { FC } from 'react';
 
+import { ChartPie, Link2, Percent, TrendingDown, TrendingUp, Trophy } from 'lucide-react';
+
 import { StatisticCard } from '@/app/(shared)/components/blocks/StatisticCard';
-import { Card } from '@/app/(shared)/components/ui/card';
 import { ITableRows } from '@/app/(shared)/utils/spreadsheet.service';
 import { StatsService } from '@/app/(shared)/utils/stats.service';
 
@@ -34,31 +34,26 @@ export const MainStatistics: FC<{
         title="Desktop vs Mobile"
       />
 
-      <Card className="divide-y px-2 text-left md:col-span-3 md:grid md:grid-cols-3 md:divide-x md:divide-y-0 md:px-0 md:py-2">
-        <StatisticCard
-          content={stats.getMetrics().fastest.loading_time}
-          description={`${stats.getMetrics().fastest.version} - ${stats.getMetrics().fastest.url}`}
-          icon={<TrendingUp color="#10b981" size={26} strokeWidth={2.5} />}
-          title="Fastest Test"
-          variant="default"
-        />
+      <StatisticCard
+        content={stats.getMetrics().fastest.loading_time}
+        description={`${stats.getMetrics().fastest.version} - ${stats.getMetrics().fastest.url}`}
+        icon={<TrendingUp color="#10b981" size={26} strokeWidth={2.5} />}
+        title="Fastest Test"
+      />
 
-        <StatisticCard
-          content={stats.getMetrics().smallest.loading_time}
-          description={`${stats.getMetrics().smallest.version} - ${stats.getMetrics().smallest.url}`}
-          icon={<TrendingDown color="#f43f5e" size={26} strokeWidth={2.5} />}
-          title="Slowest Test"
-          variant="default"
-        />
+      <StatisticCard
+        content={stats.getMetrics().smallest.loading_time}
+        description={`${stats.getMetrics().smallest.version} - ${stats.getMetrics().smallest.url}`}
+        icon={<TrendingDown color="#f43f5e" size={26} strokeWidth={2.5} />}
+        title="Slowest Test"
+      />
 
-        <StatisticCard
-          content={stats.getMetrics().performanceLeader.performance_score}
-          description={`${stats.getMetrics().performanceLeader.version} - ${stats.getMetrics().performanceLeader.url}`}
-          icon={<Trophy color="#f59e0b" size={26} strokeWidth={2.5} />}
-          title="Performance Leader"
-          variant="default"
-        />
-      </Card>
+      <StatisticCard
+        content={stats.getMetrics().performanceLeader.performance_score}
+        description={`${stats.getMetrics().performanceLeader.version} - ${stats.getMetrics().performanceLeader.url}`}
+        icon={<Trophy color="#f59e0b" size={26} strokeWidth={2.5} />}
+        title="Performance Leader"
+      />
     </div>
   );
 };

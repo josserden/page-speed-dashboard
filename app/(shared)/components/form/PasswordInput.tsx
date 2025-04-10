@@ -1,6 +1,8 @@
-import { Button, Input, InputProps } from '@heroui/react';
-import { Eye, EyeOff, KeyRound } from 'lucide-react';
 import React, { FC } from 'react';
+
+import { Eye, EyeOff, KeyRound } from 'lucide-react';
+
+import { Button, Input, InputProps } from '@heroui/react';
 
 export const PasswordInput: FC<InputProps> = ({ ...props }) => {
   const [isVisible, setIsVisible] = React.useState(false);
