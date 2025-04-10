@@ -42,7 +42,7 @@ export default function LoginPage() {
                   size="lg"
                 >
                   <Tab key="login" title={<Typography className="font-semibold">Login</Typography>}>
-                    <LoginForm />
+                    <LoginForm type="login" />
 
                     <Typography className="mt-6 text-center text-small">
                       Don’t have an account?{' '}
@@ -56,7 +56,7 @@ export default function LoginPage() {
                     key="signup"
                     title={<Typography className="font-semibold">Sign Up</Typography>}
                   >
-                    <LoginForm />
+                    <LoginForm type="signup" />
 
                     <Typography className="mt-6 text-center text-small">
                       Already have an account?{' '}

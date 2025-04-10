@@ -71,6 +71,7 @@ export const MetricsTable: FC<{
       selectedKeys={selectedKeys}
       selectionMode="multiple"
       sortDescriptor={sortDescriptor}
+      suppressHydrationWarning
       topContent={
         <TableHeader
           filterValue={filterValue}

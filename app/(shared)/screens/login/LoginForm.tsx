@@ -9,11 +9,17 @@ import { Button, Form } from '@heroui/react';
 import { BaseInput } from '@/app/(shared)/components/form/BaseInput';
 import { PasswordInput } from '@/app/(shared)/components/form/PasswordInput';
 import { useForm } from '@/app/(shared)/screens/login/hooks/useForm';
-import { login } from '@/app/(shared)/utils/supabase/actions';
+import { login, signup } from '@/app/(shared)/utils/supabase/actions';
 
-export const LoginForm: FC = () => {
+type LoginFormTypesProps = {
+  type: 'login' | 'signup';
+};
+
+export const LoginForm: FC<LoginFormTypesProps> = ({ type }) => {
+  const existingAction = type === 'login' ? login : signup;
+
   const { errors, getPasswordError, isLoading, onSubmit, password, setPassword, setSubmitted } =
-    useForm({ action: login });
+    useForm({ action: existingAction });
 
   return (
     <Form

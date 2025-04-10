@@ -59,9 +59,7 @@ export const useForm = ({ action }: ActionProps) => {
         return;
       }
 
-      const result = await action(formData);
-
-      console.log('result', result);
+      await action(formData);
 
       addToast({
         color: 'success',
@@ -77,7 +75,7 @@ export const useForm = ({ action }: ActionProps) => {
 
       addToast({
         color: 'danger',
-        description: 'An error occurred during form submission',
+        description: errors.form,
         title: 'Error',
       });
     } finally {
