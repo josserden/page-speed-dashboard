@@ -3,8 +3,8 @@ import { useMemo, useState } from 'react';
 import { Selection } from '@heroui/react';
 
 import {
-  INITIAL_VISIBLE_COLUMNS,
   columns,
+  INITIAL_VISIBLE_COLUMNS,
 } from '@/app/(shared)/components/blocks/MetricsTable/MetricsTable.options';
 
 export const useTableData = () => {
