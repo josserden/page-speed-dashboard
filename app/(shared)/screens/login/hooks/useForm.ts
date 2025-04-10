@@ -1,12 +1,21 @@
+import { addToast } from '@heroui/react';
 import React, { useState } from 'react';
 
-export const useForm = () => {
+type ServerAction = (formData: FormData) => Promise<void>;
+
+type ValidationErrors = Record<string, string>;
+
+type ActionProps = {
+  action: ServerAction;
+};
+
+export const useForm = ({ action }: ActionProps) => {
   const [password, setPassword] = useState<string>('');
   const [submitted, setSubmitted] = useState<null | Record<string, FormDataEntryValue>>(null);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<ValidationErrors>({});
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  // Real-time password validation
-  const getPasswordError = (value: string) => {
+  const getPasswordError = (value: string): null | string => {
     if (value.length < 4) {
       return 'Password must be 4 characters or more';
     }
@@ -22,49 +31,63 @@ export const useForm = () => {
     return null;
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const data = Object.fromEntries(new FormData(e.currentTarget)) as Record<
-      string,
-      FormDataEntryValue
-    >;
+    setIsLoading(true);
 
-    // Custom validation checks
-    const newErrors: Record<string, FormDataEntryValue> = {};
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData) as Record<string, FormDataEntryValue>;
 
-    // Password validation
-    const passwordError = getPasswordError(data.password as string);
+    try {
+      const newErrors: ValidationErrors = {};
 
-    if (passwordError) {
-      newErrors.password = passwordError;
+      const passwordValue = formData.get('password') as string;
+      const passwordError = getPasswordError(passwordValue);
+
+      if (passwordError) {
+        newErrors.password = passwordError;
+      }
+
+      if (formData.get('name') === 'admin') {
+        newErrors.name = 'Nice try! Choose a different username';
+      }
+
+      if (Object.keys(newErrors).length > 0) {
+        setErrors(newErrors);
+        return;
+      }
+
+      const result = await action(formData);
+
+      console.log('result', result);
+
+      addToast({
+        color: 'success',
+        description: 'Form submitted successfully!',
+        title: 'Success',
+      });
+
+      setErrors({});
+      setSubmitted(data);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setErrors({ form: 'An error occurred during form submission' });
+
+      addToast({
+        color: 'danger',
+        description: 'An error occurred during form submission',
+        title: 'Error',
+      });
+    } finally {
+      setIsLoading(false);
     }
-
-    // Username validation
-    if (data.name === 'admin') {
-      newErrors.name = 'Nice try! Choose a different username';
-    }
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-
-      return;
-    }
-
-    if (data.terms !== 'true') {
-      setErrors({ terms: 'Please accept the terms' });
-
-      return;
-    }
-
-    // Clear errors and submit
-    setErrors({});
-    setSubmitted(data);
   };
 
   return {
     errors,
     getPasswordError,
+    isLoading,
     onSubmit,
     password,
     setErrors,

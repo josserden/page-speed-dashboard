@@ -7,9 +7,11 @@ import React, { FC } from 'react';
 import { BaseInput } from '@/app/(shared)/components/form/BaseInput';
 import { PasswordInput } from '@/app/(shared)/components/form/PasswordInput';
 import { useForm } from '@/app/(shared)/screens/login/hooks/useForm';
+import { login } from '@/app/(shared)/utils/supabase/actions';
 
 export const LoginForm: FC = () => {
-  const { errors, getPasswordError, onSubmit, password, setPassword, setSubmitted } = useForm();
+  const { errors, getPasswordError, isLoading, onSubmit, password, setPassword, setSubmitted } =
+    useForm({ action: login });
 
   return (
     <Form
@@ -43,11 +45,11 @@ export const LoginForm: FC = () => {
       />
 
       <div className="flex w-full gap-4">
-        <Button className="w-full" color="primary" type="submit">
+        <Button className="w-full" color="primary" isLoading={isLoading} type="submit">
           Submit
         </Button>
 
-        <Button type="reset" variant="bordered">
+        <Button isDisabled={isLoading} type="reset" variant="bordered">
           Reset
         </Button>
       </div>

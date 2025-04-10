@@ -19,7 +19,9 @@ export const ThemeSwitcher = () => {
   return (
     <Button
       aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-      color="secondary"
+      className="bg-transparent"
+      // color="transparent"
+      color="default"
       isIconOnly
       onPress={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
     >

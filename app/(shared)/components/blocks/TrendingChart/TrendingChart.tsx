@@ -86,7 +86,7 @@ export const TrendingChart: FC<TrendingChartProps> = ({ chartData }) => {
             <div className="flex items-center gap-2 font-medium leading-none">
               Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
             </div>
-            <div className="flex items-center gap-2 leading-none text-muted-foreground">
+            <div className="text-muted-foreground flex items-center gap-2 leading-none">
               Showing total visitors for the last 6 months
             </div>
           </div>

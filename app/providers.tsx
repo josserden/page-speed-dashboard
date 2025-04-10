@@ -5,6 +5,8 @@ import React from 'react';
 
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
+import { ToastProvider } from '@heroui/toast';
+
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <HeroUIProvider>
@@ -14,6 +16,19 @@ export function Providers({ children }: { children: React.ReactNode }) {
         enableColorScheme
         themes={['light', 'dark']}
       >
+        <ToastProvider
+          placement="top-center"
+          toastProps={{
+            classNames: {
+              closeButton: 'opacity-100 absolute right-4 top-1/2 -translate-y-1/2',
+            },
+            color: 'primary',
+            hideIcon: true,
+            radius: 'sm',
+            timeout: 1000,
+            variant: 'flat',
+          }}
+        />
         {children}
       </NextThemesProvider>
     </HeroUIProvider>
