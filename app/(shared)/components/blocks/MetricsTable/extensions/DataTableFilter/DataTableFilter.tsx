@@ -1,7 +1,7 @@
+import { Input } from '@heroui/react';
 import React from 'react';
 
 import { DataTableProps } from '@/app/(shared)/components/blocks/MetricsTable/extensions/types';
-import { Input } from '@/app/(shared)/components/ui/input';
 
 export const DataTableFilter = <TData,>({ table }: DataTableProps<TData>) => {
   return (

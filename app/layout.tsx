@@ -1,22 +1,19 @@
 import React from 'react';
 
 import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
-import { cookies } from 'next/headers';
+import { Poppins } from 'next/font/google';
 
-import { AppSidebar } from '@/app/(shared)/components/layout/AppSidebar';
-import { SidebarProvider, SidebarTrigger } from '@/app/(shared)/components/ui/sidebar';
 import { cn } from '@/app/(shared)/lib/utils';
 import { Providers } from '@/app/providers';
 
 import './globals.css';
 
-const roboto = Roboto({
+const roboto = Poppins({
   display: 'swap',
   style: ['normal', 'italic'],
   subsets: ['latin'],
   variable: '--font-sans',
-  weight: ['400', '700', '900'],
+  weight: ['400', '500', '700', '900'],
 });
 
 export const metadata: Metadata = {
@@ -28,24 +25,11 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const cookieStore = await cookies();
-  const defaultOpen = cookieStore.get('sidebar:state')?.value === 'true';
-
   return (
-    <html className="dark" lang="en">
-      <body className={cn(`${roboto.variable} flex h-full min-h-screen flex-col antialiased`)}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn(`${roboto.variable} flex flex-col antialiased`)}>
         <Providers>
-          <SidebarProvider defaultOpen={defaultOpen}>
-            <AppSidebar />
-
-            <main className="flex-grow px-2.5 py-1">
-              <header>
-                <SidebarTrigger />
-              </header>
-
-              {children}
-            </main>
-          </SidebarProvider>
+          <main className="h-full min-h-screen flex-grow">{children}</main>
         </Providers>
       </body>
     </html>
